@@ -7,7 +7,7 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { Platform, StyleSheet, Text, View, Image, TouchableOpacity,FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import VideoItem from'./components/videoItem';
 import data from './data.json';
@@ -28,7 +28,12 @@ export default class App extends Component {
           </View>
         </View>
         <View style={styles.body}>
-          <VideoItem video={data.items[0]}/>
+          <FlatList 
+            data={data.items}
+            renderItem={(video)=><VideoItem video={video.item}/>}
+            keyExtractor={(item)=>item.id}
+            ItemSeparatorComponent={()=><View style={{height:0.5,backgroundColor:'#E5E5E5'}}/>}
+          />
         </View>
         <View style={styles.tabBar}>
           <TouchableOpacity style={styles.tabItem}>

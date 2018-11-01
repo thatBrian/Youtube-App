@@ -13,7 +13,7 @@ export default class VideoItem extends Component {
                 <View style= {styles.descContainer}>
                     <Image source={{uri:'https://randomuser.me/portraits/men/0.jpg'}} style={{width:50, height:50, borderRadius: 25}}/>
                     <View style={styles.videoDetails}>
-                        <Text style={styles.videoTitle}>{video.snippet.title}</Text>
+                        <Text numberOfLines={2} style={styles.videoTitle}>{video.snippet.title}</Text>
                         <Text style={styles.videoStats}>{video.snippet.channelTitle + " · " + nFormatter(video.statistics.viewCount,1) + " views" + " · " + "3 months ago"}</Text>
                     </View>
                     <TouchableOpacity>
