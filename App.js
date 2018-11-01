@@ -8,13 +8,9 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Image} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -23,6 +19,10 @@ export default class App extends Component<Props> {
       <View style={styles.container}>
         <View style={styles.navBar}>
           <Image source={require('./src/img/youtube_logo.png')} style={{width:98, height:22}}/>
+          <View style= {styles.rightNav}>
+              <Icon style={styles.navItem} name="search" size={25}/>
+              <Icon style={styles.navItem} name="account-circle" size={25}/>
+          </View>
         </View>
       </View>
     );
@@ -39,7 +39,15 @@ const styles = StyleSheet.create({
     elevation: 3,// gives a drop shadow
     paddingHorizontal: 15,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  rightNav:{
+    flexDirection:'row',
+    elevation: 3,
+  },
+  navItem:{
+    marginLeft:25,
   }
 
 });
