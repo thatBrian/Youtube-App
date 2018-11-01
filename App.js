@@ -9,11 +9,10 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import VideoItem from'./components/videoItem';
+import data from './data.json';
 
-
-
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -29,7 +28,7 @@ export default class App extends Component<Props> {
           </View>
         </View>
         <View style={styles.body}>
-          
+          <VideoItem video={data.items[0]}/>
         </View>
         <View style={styles.tabBar}>
           <TouchableOpacity style={styles.tabItem}>
